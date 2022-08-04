@@ -10,8 +10,10 @@
   - [Modelo de desenvolvimento](#modelo-de-desenvolvimento)
   - [Classes do projeto](#classes-do-projeto)
 + [Tabela de endpoints](#endpoints)
++ 
 # Escopo
-Escopo do projeto redigido para fins de avaliação
+Escopo do projeto redigido para fins de avaliação.
+
 ## Por que criar um co-piloto para cozinheiros?
 Devido ao [aumento de cozinheiros durante e depois a pandemia de COVID-19](https://www.terra.com.br/noticias/mais-de-40-dos-brasileiros-continuarao-cozinhando-em-casa-no-pos-pandemia,ddd18544be75d4c153a4ce7d1ab7d151855p84uf.html#:~:text=Um%20dos%) e também ao [aumento de consumo de conteúdo sobre receitas](https://www.terra.com.br/noticias/dino/durante-quarentena-culinaria-se-torna-hobbie-de-brasileiros,0843136dceb4e829ea711d0d1009921d7a6pyool.html) em sites como Youtube, nós concluímos que um aplicativo que auxilie o dia-a-dia na cozinha terá grnade valor para aqueles que gostam de cozinhar.
 
