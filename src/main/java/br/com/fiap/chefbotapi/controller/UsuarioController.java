@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1/usuario")
@@ -26,5 +27,10 @@ public class UsuarioController {
     @PostMapping(path = "/cadastrar")
     public void salvarUsuario(@RequestBody Usuario usuario){
         usuarioService.salvarUsuario(usuario);
+    }
+
+    @GetMapping(path = "usuario/{id}")
+    public Optional<Usuario> obterPorId(@PathVariable Long id){
+        return usuarioService.obterPorId(id);
     }
 }
