@@ -19,7 +19,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping(path = "/usuarios")
+    @GetMapping(path = "/todosUsuarios")
     public List<Usuario> obterTodos(){
         return usuarioService.obterTodos();
     }
@@ -38,6 +38,14 @@ public class UsuarioController {
     public Usuario delecaoLogica(@PathVariable long id){
         return usuarioService.delecaoLogica(id);
     }
+
+    @GetMapping(path = "/listaUsuarios")
+    public List<Usuario> listagemLogica(){
+        return usuarioService.obterAtivos();
+    }
+
+
+
 
 
 }

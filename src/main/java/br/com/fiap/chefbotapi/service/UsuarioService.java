@@ -36,4 +36,8 @@ public class UsuarioService {
         return usuarioRepository.save(usuario.get());
     }
 
+    public List<Usuario> obterAtivos(){
+        return usuarioRepository.findAllActive();
+    }
+
 }
