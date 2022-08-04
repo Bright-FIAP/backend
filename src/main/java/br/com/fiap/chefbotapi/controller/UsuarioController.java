@@ -33,4 +33,11 @@ public class UsuarioController {
     public Optional<Usuario> obterPorId(@PathVariable Long id){
         return usuarioService.obterPorId(id);
     }
+
+    @PutMapping(path = "/remover/{id}")
+    public Usuario delecaoLogica(@PathVariable long id){
+        return usuarioService.delecaoLogica(id);
+    }
+
+
 }

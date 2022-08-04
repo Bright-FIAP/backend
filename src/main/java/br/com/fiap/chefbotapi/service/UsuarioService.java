@@ -30,4 +30,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public Usuario delecaoLogica(long id){
+        Optional<Usuario> usuario = usuarioRepository.findById(id);
+        usuario.get().setStatus(false);
+        return usuarioRepository.save(usuario.get());
+    }
+
 }
