@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -46,6 +47,7 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.uf = uf;
+        this.dataCadastro = LocalDateTime.now();
         this.status = true;
 //        this.ingredientes = ingredientes;
     }
