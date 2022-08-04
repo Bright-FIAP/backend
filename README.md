@@ -1,6 +1,6 @@
-# Objeivos e escopo do projeto
-Chefbot é um aplicativo que age como co-piloto de cozinheiros. O Chefbot tem como principal funcionalidade um agente conversacional que irá falar com o usuário a fim de mostrar uma lista de receitas para que o mesmo cozinhe.
-O usuário, aquele que tem ingredientes disponíveis, irá informá-los ao aplicativo e, por meio de inteligência artificial, o aplicativo vai mostrar para o usuário todas as receitas possíveis de serem feitas com os ingredientes cadastrados pelo usuário.
+# Objetivos e escopo do projeto
+Chefbot é um aplicativo que age como co-piloto de cozinheiros. E se tem como principal funcionalidade um agente conversacional que irá falar com o usuário a fim de mostrar uma lista de receitas para que o mesmo cozinhe.
+O usuário cadastra os ingredientes disponíveis no aplicativo e, por meio de inteligência artificial, é devolvido ao usuário todas as receitas possíveis de serem feitas com os ingredientes cadastrados.
 
 Interface entre o [frontend](https://github.com/Bright-FIAP/frontend) e o banco de dados Oracle.
 
