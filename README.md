@@ -59,6 +59,7 @@ A API segue a arquitetura MVC
 
 ## Classes do projeto
 esse diagrama pode ser atualizado
+PRECISA ADICIONAR O MÉTODO 'listagemLogica' nos Services e Repositories
 <p align="center" >
   <img width="90%" src="https://user-images.githubusercontent.com/54187661/182870002-a6b05121-c199-425f-b88f-3c8870d9228d.png" />
 </p>
