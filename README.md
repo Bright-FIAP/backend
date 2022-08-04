@@ -50,6 +50,7 @@ Ao escolher uma receita, seu modo de preparo e uma listagem de ingredientes é e
 <br><br>
 
 # Arquitetura
+Diagramas dos modelos arquiteturais utilizados no desenvolvimento e deploy do projeto.
 ## Modelo de desenvolvimento
 A API segue a arquitetura MVC
 <p align="center">
