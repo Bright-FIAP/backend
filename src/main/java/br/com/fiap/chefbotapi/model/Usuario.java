@@ -1,41 +1,51 @@
 package br.com.fiap.chefbotapi.model;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "tb_usuario")
+@SequenceGenerator(name = "usuario", sequenceName = "SQ_TB_USUARIO", allocationSize = 1)
 public class Usuario {
 
-    //TODO atributos
-    // id : long
-    //nome : String
-    //email : String
-    //senha : String
-    //uf : String
-    //ingredientes : List
-    //dataCadastro : LocalDateTime
-    //status : boolean
-
+    @Id
+    @GeneratedValue(generator = "usuario", strategy = GenerationType.SEQUENCE)
+    @Column(name = "cd_usuario")
     private long id;
 
+    @Column(name = "nm_usuario", nullable = false, length = 55)
+    private String nome;
+
+    @Column(name = "ds_email", nullable = false, length = 40)
     private String email;
 
+    @Column(name = "ds_senha", nullable = false)
     private String senha;
 
+    @Column(name = "ds_uf", length = 19)
     private String uf;
 
-    private Ingrediente ingredientes;
+    //TODO criar classe Ingrediente
+    //TODO setar relacionamento
+//    private Ingrediente ingredientes;
 
+    @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
 
+    @Column(name = "st_usuario")
+    @Value("${true}")
     private boolean status;
 
     public Usuario() {
     }
 
-    public Usuario(String email, String senha, String uf, Ingrediente ingredientes) {
+    public Usuario(String email, String senha, String uf) {
         this.email = email;
         this.senha = senha;
         this.uf = uf;
-        this.ingredientes = ingredientes;
+//        this.ingredientes = ingredientes;
     }
 
     public long getId() {
@@ -44,6 +54,14 @@ public class Usuario {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+    public void setNome(String nome){
+        this.nome = nome;
     }
 
     public String getEmail() {
@@ -70,13 +88,13 @@ public class Usuario {
         this.uf = uf;
     }
 
-    public Ingrediente getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(Ingrediente ingredientes) {
-        this.ingredientes = ingredientes;
-    }
+//    public Ingrediente getIngredientes() {
+//        return ingredientes;
+//    }
+//
+//    public void setIngredientes(Ingrediente ingredientes) {
+//        this.ingredientes = ingredientes;
+//    }
 
     public LocalDateTime getDataCadastro() {
         return dataCadastro;
