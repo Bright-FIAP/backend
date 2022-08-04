@@ -35,7 +35,7 @@ public class Usuario {
     private LocalDateTime dataCadastro;
 
     @Column(name = "st_usuario")
-    @Value("${true}")
+    @Value("true")
     private boolean status;
 
     public Usuario() {
@@ -46,6 +46,7 @@ public class Usuario {
         this.email = email;
         this.senha = senha;
         this.uf = uf;
+        this.status = true;
 //        this.ingredientes = ingredientes;
     }
 
