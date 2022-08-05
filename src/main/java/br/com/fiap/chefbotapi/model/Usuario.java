@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -29,8 +30,11 @@ public class Usuario {
     private String uf;
 
     //TODO criar classe Ingrediente
-    //TODO setar relacionamento
-//    private Ingrediente ingredientes;
+    //TODO setar
+    @OneToMany
+    @JoinColumn(name = "usuario_id", referencedColumnName = "cd_usuario")
+    private List<Ingrediente> ingredientes;
+
 
     @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
