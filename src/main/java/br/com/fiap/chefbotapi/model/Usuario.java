@@ -53,7 +53,7 @@ public class Usuario {
         this.uf = uf;
         this.dataCadastro = LocalDateTime.now();
         this.status = true;
-//        this.ingredientes = ingredientes;
+        this.ingredientes = ingredientes;
     }
 
     public long getId() {
@@ -96,13 +96,14 @@ public class Usuario {
         this.uf = uf;
     }
 
-//    public Ingrediente getIngredientes() {
-//        return ingredientes;
-//    }
-//
-//    public void setIngredientes(Ingrediente ingredientes) {
-//        this.ingredientes = ingredientes;
-//    }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
 
     public LocalDateTime getDataCadastro() {
         return dataCadastro;
