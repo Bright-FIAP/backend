@@ -29,7 +29,7 @@ public class UsuarioController {
         usuarioService.salvarUsuario(usuario);
     }
 
-    @GetMapping(path = "usuario/{id}")
+    @GetMapping(path = "/usuario/{id}")
     public Optional<Usuario> obterPorId(@PathVariable Long id){
         return usuarioService.obterPorId(id);
     }
@@ -43,8 +43,6 @@ public class UsuarioController {
     public List<Usuario> listagemLogica(){
         return usuarioService.obterAtivos();
     }
-
-
 
 
 

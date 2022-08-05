@@ -1,10 +1,13 @@
 package br.com.fiap.chefbotapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -29,14 +32,16 @@ public class Usuario {
     private String uf;
 
     //TODO criar classe Ingrediente
-    //TODO setar relacionamento
-//    private Ingrediente ingredientes;
+    //TODO setar
+    @OneToMany(cascade =CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<Ingrediente> ingredientes = new ArrayList<>();;
+
 
     @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
 
     @Column(name = "st_usuario")
-    @Value("true")
     private boolean status;
 
     public Usuario() {
@@ -49,7 +54,16 @@ public class Usuario {
         this.uf = uf;
         this.dataCadastro = LocalDateTime.now();
         this.status = true;
-//        this.ingredientes = ingredientes;
+    }
+
+    public Usuario(String nome, String email, String senha, String uf, List<Ingrediente> ingredientes) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.uf = uf;
+        this.dataCadastro = LocalDateTime.now();
+        this.status = true;
+        this.ingredientes = ingredientes;
     }
 
     public long getId() {
@@ -92,13 +106,14 @@ public class Usuario {
         this.uf = uf;
     }
 
-//    public Ingrediente getIngredientes() {
-//        return ingredientes;
-//    }
-//
-//    public void setIngredientes(Ingrediente ingredientes) {
-//        this.ingredientes = ingredientes;
-//    }
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
 
     public LocalDateTime getDataCadastro() {
         return dataCadastro;
