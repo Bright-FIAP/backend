@@ -9,6 +9,7 @@
 + [Arquitetura](#arquitetura)
   - [Modelo de desenvolvimento](#modelo-de-desenvolvimento)
   - [Classes do projeto](#classes-do-projeto)
+  - [Arquitetura Back-end](#arquitetura-back-end)
 + [Tabela de endpoints](#endpoints)
 
 # Escopo
@@ -62,6 +63,11 @@ esse diagrama pode ser atualizado
 PRECISA ADICIONAR O MÉTODO 'listagemLogica' nos Services e Repositories
 <p align="center" >
   <img width="90%" src="https://user-images.githubusercontent.com/54187661/182870002-a6b05121-c199-425f-b88f-3c8870d9228d.png" />
+</p>
+
+## Arquitetura back-end
+<p align="center" >
+  <img width="90%" src="https://user-images.githubusercontent.com/54187661/183174999-d66f7774-3f2f-4feb-81bc-e32613cb8112.png" />
 </p>
 
 
