@@ -1,10 +1,12 @@
 package br.com.fiap.chefbotapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -31,22 +33,30 @@ public class Usuario {
 
     //TODO criar classe Ingrediente
     //TODO setar
-    @OneToMany
-    @JoinColumn(name = "usuario_id", referencedColumnName = "cd_usuario")
-    private List<Ingrediente> ingredientes;
+    @OneToMany(cascade =CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<Ingrediente> ingredientes = new ArrayList<>();;
 
 
     @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
 
     @Column(name = "st_usuario")
-    @Value("true")
     private boolean status;
 
     public Usuario() {
     }
 
     public Usuario(String nome, String email, String senha, String uf) {
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.uf = uf;
+        this.dataCadastro = LocalDateTime.now();
+        this.status = true;
+    }
+
+    public Usuario(String nome, String email, String senha, String uf, List<Ingrediente> ingredientes) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

@@ -1,5 +1,7 @@
 package br.com.fiap.chefbotapi.model;
 
+import net.bytebuddy.utility.nullability.MaybeNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,9 +20,6 @@ public class Ingrediente {
     @Column(name = "st_ingrediente", length = 55)
     private String tipo;
 
-//    @ManyToOne
-//
-//    private Usuario usuario;
 
     public Ingrediente() {}
 
@@ -28,6 +27,7 @@ public class Ingrediente {
         this.nome = nome;
         this.tipo = tipo;
     }
+
 
     public long getId() {
         return id;
@@ -52,4 +52,6 @@ public class Ingrediente {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+
 }
