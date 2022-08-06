@@ -34,4 +34,8 @@ public class IngredienteService {
         ingredienteRepository.deleteById(id);
     }
 
+    public List<Ingrediente> obterIngredientesDeUmUsuario(Long id){
+        return ingredienteRepository.obterIngredientesDeUmUsuario(id);
+    }
+
 }

@@ -39,4 +39,8 @@ public class IngredienteController {
         ingredienteService.removerIngrediente(id);
     }
 
+    @GetMapping(path = "ingredientes/usuario/{id}")
+    public List<Ingrediente> obterIngredientesDeUmUsuario(@PathVariable Long id){
+        return ingredienteService.obterIngredientesDeUmUsuario(id);
+    }
 }

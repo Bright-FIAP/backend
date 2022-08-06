@@ -40,23 +40,29 @@ public class UsuarioConfig {
 //                    "São Paulo"
 //            );
 //
-            Ingrediente i1 = new Ingrediente(
-                    "Alho",
-                    "Tempero"
-            );
 
             Usuario u1 = new Usuario(
                     "Giulio Cesar Costa Bernardi",
                     "giulioccbernardi@gmail.com",
                     "123456789",
-                    "São Paulo",
-                    List.of(i1)
+                    "São Paulo"
+            );
+
+            Ingrediente i1 = new Ingrediente(
+                    "Alho",
+                    "Tempero",
+                    u1
             );
 
             Ingrediente i2 = new Ingrediente(
                     "Alho",
                     "Tempero"
+
             );
+
+
+
+
 
             u1.setIngredientes(List.of(i1, i2));
 //
