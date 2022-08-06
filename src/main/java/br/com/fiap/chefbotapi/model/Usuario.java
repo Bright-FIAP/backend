@@ -1,5 +1,6 @@
 package br.com.fiap.chefbotapi.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -34,8 +35,8 @@ public class Usuario {
     //TODO criar classe Ingrediente
     //TODO setar
     @OneToMany(cascade =CascadeType.ALL)
-    @JoinColumn(name = "usuario_id")
-    private List<Ingrediente> ingredientes = new ArrayList<>();;
+    @JsonBackReference
+    private List<Ingrediente> ingredientes;
 
 
     @Column(name = "dt_cadastro")

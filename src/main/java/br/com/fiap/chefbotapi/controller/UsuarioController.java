@@ -1,10 +1,12 @@
 package br.com.fiap.chefbotapi.controller;
 
+import br.com.fiap.chefbotapi.model.Ingrediente;
 import br.com.fiap.chefbotapi.model.Usuario;
 import br.com.fiap.chefbotapi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,7 +45,5 @@ public class UsuarioController {
     public List<Usuario> listagemLogica(){
         return usuarioService.obterAtivos();
     }
-
-
 
 }
