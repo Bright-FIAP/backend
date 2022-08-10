@@ -4,8 +4,6 @@
   - [Finalidade do projeto](#finalidade-do-projeto)
   - [Objetivos do projeto](#objetivos-do-projeto)
   - [Descrição do produto](#descrição-do-produto)
-  - [Stakeholders](#stakeholders)
-  - [Estimativa de tempo e custo](#estimativa-de-tempo-e-custo)
 + [Arquitetura](#arquitetura)
   - [Modelo de desenvolvimento](#modelo-de-desenvolvimento)
   - [Classes do projeto](#classes-do-projeto)
@@ -34,20 +32,6 @@ Desenvolver um aplicativo mobile que tenha como diferencial a utilização de in
 **Chefbot** é um aplicativo mobile que age como co-piloto para cozinheiros e tem como principal funcionalidade um agente conversacional que interage com o usuário enquanto o mesmo realiza suas tarefas culinárias. <br>
 O usuário cadastra os ingredientes disponíveis no aplicativo e, por meio de inteligência artificial, o Chefbot informa todas as receitas possíveis de serem feitas. O cadastro de ingredientes é feito por meio da troca de mensagens com o Chefbot, ou também ao *enviar uma foto do ingrediente*.<br>
 Ao escolher uma receita, seu modo de preparo e uma listagem de ingredientes é exibida. O usuário pede ao *Chefbot para ditar o modo de preparo por áudio*, assim o mesmo não precisa ficar pegando o celular na mão enquanto cozinha.
-<br><br>
-
-## Stakeholders
-- FIAP
-- Professores de cursos de tecnologia
-- Cozinheiros profissionais
-- Cozinheiros amadores
-- Desenvolvedores mobile e de IA
-- Plusoft
-<br><br>
-
-## Estimativa de tempo e custo
-**Previsão para a finalização:** 4 meses <br>
-**Custo estimado:** R$20.000
 <br><br>
 
 # Arquitetura
