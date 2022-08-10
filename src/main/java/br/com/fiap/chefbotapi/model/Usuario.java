@@ -1,18 +1,19 @@
 package br.com.fiap.chefbotapi.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.beans.factory.annotation.Value;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
 @SequenceGenerator(name = "usuario", sequenceName = "SQ_TB_USUARIO", allocationSize = 1)
+//@JsonTypeName("user")
+//@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
 public class Usuario {
 
     @Id
@@ -34,9 +35,9 @@ public class Usuario {
 
     //TODO criar classe Ingrediente
     //TODO setar
-    @OneToMany(cascade =CascadeType.ALL)
-    @JsonBackReference
-    private List<Ingrediente> ingredientes;
+//    @OneToMany(cascade =CascadeType.ALL)
+//    @JsonBackReference
+//    private List<Ingrediente> ingredientes;
 
 
     @Column(name = "dt_cadastro")
@@ -57,15 +58,15 @@ public class Usuario {
         this.status = true;
     }
 
-    public Usuario(String nome, String email, String senha, String uf, List<Ingrediente> ingredientes) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.uf = uf;
-        this.dataCadastro = LocalDateTime.now();
-        this.status = true;
-        this.ingredientes = ingredientes;
-    }
+//    public Usuario(String nome, String email, String senha, String uf, List<Ingrediente> ingredientes) {
+//        this.nome = nome;
+//        this.email = email;
+//        this.senha = senha;
+//        this.uf = uf;
+//        this.dataCadastro = LocalDateTime.now();
+//        this.status = true;
+////        this.ingredientes = ingredientes;
+//    }
 
     public long getId() {
         return id;
@@ -108,13 +109,13 @@ public class Usuario {
     }
 
 
-    public List<Ingrediente> getIngredientes() {
-        return ingredientes;
-    }
-
-    public void setIngredientes(List<Ingrediente> ingredientes) {
-        this.ingredientes = ingredientes;
-    }
+//    public List<Ingrediente> getIngredientes() {
+//        return ingredientes;
+//    }
+//
+//    public void setIngredientes(List<Ingrediente> ingredientes) {
+//        this.ingredientes = ingredientes;
+//    }
 
     public LocalDateTime getDataCadastro() {
         return dataCadastro;
