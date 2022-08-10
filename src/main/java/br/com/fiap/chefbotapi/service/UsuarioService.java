@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,8 @@ public class UsuarioService {
     }
 
     public void salvarUsuario(Usuario usuario){
-        System.out.println(usuario);
+        usuario.setStatus(true);
+        usuario.setDataCadastro(LocalDateTime.now());
         usuarioRepository.save(usuario);
     }
 
@@ -39,7 +41,18 @@ public class UsuarioService {
         return usuarioRepository.save(usuario.get());
     }
 
+    public void deletar(Long id){
+        usuarioRepository.deleteById(id);
+    }
+
     public List<Usuario> obterAtivos(){
         return usuarioRepository.findAllActive();
+    }
+
+    public Optional<Usuario> login (String email, String senha){
+
+//        System.out.println("Aqui é do email: " + usuarioRepository.findByEmail(email, senha).get().getEmail());
+        return usuarioRepository.findByEmail(email, senha);
+
     }
 }

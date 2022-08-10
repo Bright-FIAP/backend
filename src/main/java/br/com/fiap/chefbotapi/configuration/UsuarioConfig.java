@@ -64,7 +64,7 @@ public class UsuarioConfig {
 
 
 
-            u1.setIngredientes(List.of(i1, i2));
+//            u1.setIngredientes(List.of(i1, i2));
 //
 //            Ingrediente i2 = new Ingrediente(
 //                    "Frango",
@@ -94,7 +94,7 @@ public class UsuarioConfig {
             usuarioRepository.saveAll(List.of(u1));
 //
             ingredienteRepository.saveAll(List.of(i1, i2));
-            System.out.println(u1.getIngredientes().get(0).getNome());
+//            System.out.println(u1.getIngredientes().get(0).getNome());
         };
 
     }
