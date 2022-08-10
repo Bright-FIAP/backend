@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -49,10 +51,18 @@ public class UsuarioService {
         return usuarioRepository.findAllActive();
     }
 
-    public Optional<Usuario> login (String email, String senha){
+    public Optional<Usuario> findByEmail (String email){
+        return usuarioRepository.findByEmail(email);
 
-//        System.out.println("Aqui é do email: " + usuarioRepository.findByEmail(email, senha).get().getEmail());
-        return usuarioRepository.findByEmail(email, senha);
+    }
 
+    public boolean isUsuarioValido(String email, String senha){
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+        if(usuario.isPresent()){
+            System.out.println(Objects.equals(usuario.get().getSenha(), senha));
+            return Objects.equals(usuario.get().getSenha(), senha);
+        }else{
+            return false;
+        }
     }
 }
