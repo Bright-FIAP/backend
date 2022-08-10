@@ -12,8 +12,7 @@ import java.util.List;
 @Entity
 @Table(name = "tb_usuario")
 @SequenceGenerator(name = "usuario", sequenceName = "SQ_TB_USUARIO", allocationSize = 1)
-//@JsonTypeName("user")
-//@JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
+@JsonRootName(value = "usuario")
 public class Usuario {
 
     @Id

@@ -41,8 +41,12 @@ public class UsuarioController {
     }
 
     @GetMapping(path = "/usuario/{id}")
-    public Optional<Usuario> obterPorId(@PathVariable Long id){
-        return usuarioService.obterPorId(id);
+    public ResponseEntity<Usuario> obterPorId(@PathVariable Long id){
+        Optional<Usuario> usuario = usuarioService.obterPorId(id);
+        if(usuario.isEmpty()){
+            return new ResponseEntity<Usuario>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<Usuario>(usuario.get(), HttpStatus.OK);
     }
 
     @PutMapping(path = "/remover/{id}")
@@ -56,18 +60,20 @@ public class UsuarioController {
     }
 
     @GetMapping(path = "/listaUsuarios")
-    public List<Usuario> listagemLogica(){
-        return usuarioService.obterAtivos();
+    public ResponseEntity<List<Usuario>> listagemLogica(){
+        List<Usuario> usuarios = usuarioService.obterAtivos();
+        return new ResponseEntity<>(usuarios, HttpStatus.CREATED);
     }
 
     @PostMapping(path = "/login")
-    public Optional<Usuario> validaUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<Usuario> validaUsuario(@RequestBody Usuario usuario){
         Optional<Usuario> retornoDaQuery = usuarioService.login(usuario.getEmail(), usuario.getSenha());
         if(retornoDaQuery.isEmpty()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");
         }else{
             System.out.println("Retornando aqui");
-            return usuarioService.login(usuario.getEmail(), usuario.getSenha());
+            Optional<Usuario> usuarioResponse = usuarioService.login(usuario.getEmail(), usuario.getSenha());
+            return new ResponseEntity<Usuario>(usuarioResponse.get(), HttpStatus.OK);
         }
     }
 }
