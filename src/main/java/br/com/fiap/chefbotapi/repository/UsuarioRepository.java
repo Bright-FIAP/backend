@@ -17,6 +17,6 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
     List<Usuario> findAllActive();
 
     @Query(
-            value = "SELECT * FROM TB_USUARIO u WHERE u.ds_email = :email and u.ds_senha = :senha", nativeQuery = true)
-    Optional<Usuario> findByEmail(@Param("email") String email, @Param("senha") String senha);
+            value = "SELECT * FROM TB_USUARIO u WHERE u.ds_email = :email", nativeQuery = true)
+    Optional<Usuario> findByEmail(@Param("email") String email);
 }

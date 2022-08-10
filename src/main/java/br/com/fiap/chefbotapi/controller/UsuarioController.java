@@ -1,20 +1,13 @@
 package br.com.fiap.chefbotapi.controller;
 
-import br.com.fiap.chefbotapi.model.Ingrediente;
 import br.com.fiap.chefbotapi.model.Usuario;
 import br.com.fiap.chefbotapi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.servlet.annotation.HttpConstraint;
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.Option;
-import java.math.BigDecimal;
-import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.Optional;
 
@@ -67,13 +60,11 @@ public class UsuarioController {
 
     @PostMapping(path = "/login")
     public ResponseEntity<Usuario> validaUsuario(@RequestBody Usuario usuario){
-        Optional<Usuario> retornoDaQuery = usuarioService.login(usuario.getEmail(), usuario.getSenha());
-        if(retornoDaQuery.isEmpty()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");
+        Optional<Usuario> usuarioPorEmail = usuarioService.findByEmail(usuario.getEmail());
+        if(usuarioService.isUsuarioValido(usuario.getEmail(), usuario.getSenha()) && usuarioPorEmail.isPresent()){
+            return new ResponseEntity<Usuario>(usuarioPorEmail.get(), HttpStatus.OK);
         }else{
-            System.out.println("Retornando aqui");
-            Optional<Usuario> usuarioResponse = usuarioService.login(usuario.getEmail(), usuario.getSenha());
-            return new ResponseEntity<Usuario>(usuarioResponse.get(), HttpStatus.OK);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");
         }
     }
 }
