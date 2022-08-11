@@ -33,7 +33,7 @@ public class UsuarioController {
         usuarioService.salvarUsuario(usuario);
     }
 
-    @GetMapping(path = "/usuario/{id}")
+    @GetMapping(path = "/{id}")
     public ResponseEntity<Usuario> obterPorId(@PathVariable Long id){
         Optional<Usuario> usuario = usuarioService.obterPorId(id);
         if(usuario.isEmpty()){
