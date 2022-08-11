@@ -29,9 +29,26 @@ public class UsuarioController {
     }
 
     @PostMapping(path = "/cadastrar")
-    public void salvarUsuario(@RequestBody Usuario usuario){
-        usuarioService.salvarUsuario(usuario);
+    public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
+        if(!usuarioService.isUsuarioValido(usuario.getEmail())){ //se email não existe no banco
+            System.out.println("existe no banco? " + usuarioService.isUsuarioValido(usuario.getEmail()));
+            usuarioService.salvarUsuario(usuario);
+            return new ResponseEntity<Usuario>(HttpStatus.CREATED);
+        }else{
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Email já existe no banco");
+        }
     }
+
+//    @PostMapping(path = "/login")
+//    public ResponseEntity<Usuario> validaUsuario(@RequestBody Usuario usuario){
+//        Optional<Usuario> usuarioPorEmail = usuarioService.findByEmail(usuario.getEmail());
+//        if(usuarioService.isUsuarioValido(usuario.getEmail(), usuario.getSenha()) && usuarioPorEmail.isPresent()){
+//            return new ResponseEntity<Usuario>(usuarioPorEmail.get(), HttpStatus.OK);
+//        }else{
+//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");
+//        }
+//    }
+
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<Usuario> obterPorId(@PathVariable Long id){

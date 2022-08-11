@@ -56,6 +56,11 @@ public class UsuarioService {
 
     }
 
+    public boolean isUsuarioValido(String email){
+        Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
+        return usuario.isPresent();
+    }
+
     public boolean isUsuarioValido(String email, String senha){
         Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
         if(usuario.isPresent()){
