@@ -58,5 +58,9 @@ PRECISA ADICIONAR O MÉTODO 'listagemLogica' nos Services e Repositories
 
 
 # Endpoints
+<p align="center" >
+  <img width="90%" src="https://user-images.githubusercontent.com/54187661/184354077-657b45b7-bc0f-405d-b60c-829e7e5727ea.png" />
+</p>
+Essa tabela pode (e deve) ser atualizada posteriormente.
 
-Colocar tabela com endpoits depois
+
