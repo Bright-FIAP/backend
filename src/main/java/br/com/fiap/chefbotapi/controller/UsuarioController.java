@@ -39,17 +39,6 @@ public class UsuarioController {
         }
     }
 
-//    @PostMapping(path = "/login")
-//    public ResponseEntity<Usuario> validaUsuario(@RequestBody Usuario usuario){
-//        Optional<Usuario> usuarioPorEmail = usuarioService.findByEmail(usuario.getEmail());
-//        if(usuarioService.isUsuarioValido(usuario.getEmail(), usuario.getSenha()) && usuarioPorEmail.isPresent()){
-//            return new ResponseEntity<Usuario>(usuarioPorEmail.get(), HttpStatus.OK);
-//        }else{
-//            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");
-//        }
-//    }
-
-
     @GetMapping(path = "/{id}")
     public ResponseEntity<Usuario> obterPorId(@PathVariable Long id){
         Optional<Usuario> usuario = usuarioService.obterPorId(id);
@@ -77,8 +66,8 @@ public class UsuarioController {
 
     @PostMapping(path = "/login")
     public ResponseEntity<Usuario> validaUsuario(@RequestBody Usuario usuario){
-        Optional<Usuario> usuarioPorEmail = usuarioService.findByEmail(usuario.getEmail());
-        if(usuarioService.isUsuarioValido(usuario.getEmail(), usuario.getSenha()) && usuarioPorEmail.isPresent()){
+        Optional<Usuario> usuarioPorEmail = usuarioService.findByEmail(usuario.getEmail().toLowerCase());
+        if(usuarioService.isUsuarioValido(usuario.getEmail().toLowerCase(), usuario.getSenha()) && usuarioPorEmail.isPresent()){
             return new ResponseEntity<Usuario>(usuarioPorEmail.get(), HttpStatus.OK);
         }else{
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "email ou senha incorretos");

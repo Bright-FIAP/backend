@@ -64,7 +64,6 @@ public class UsuarioService {
     public boolean isUsuarioValido(String email, String senha){
         Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
         if(usuario.isPresent()){
-            System.out.println(Objects.equals(usuario.get().getSenha(), senha));
             return Objects.equals(usuario.get().getSenha(), senha);
         }else{
             return false;
