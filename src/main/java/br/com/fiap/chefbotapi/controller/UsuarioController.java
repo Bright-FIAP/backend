@@ -33,7 +33,7 @@ public class UsuarioController {
         if(!usuarioService.isUsuarioValido(usuario.getEmail())){ //se email não existe no banco
             System.out.println("existe no banco? " + usuarioService.isUsuarioValido(usuario.getEmail()));
             usuarioService.salvarUsuario(usuario);
-            return new ResponseEntity<Usuario>(HttpStatus.CREATED);
+            return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
         }else{
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email já existe no banco");
         }
