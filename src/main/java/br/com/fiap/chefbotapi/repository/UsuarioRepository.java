@@ -1,6 +1,5 @@
 package br.com.fiap.chefbotapi.repository;
 
-import br.com.fiap.chefbotapi.model.Ingrediente;
 import br.com.fiap.chefbotapi.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
