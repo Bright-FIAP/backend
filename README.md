@@ -51,7 +51,7 @@ PRECISA ADICIONAR O MÉTODO 'listagemLogica' nos Services e Repositories
 
 ## Arquitetura back-end
 <p align="center" >
-  <img width="90%" src="https://user-images.githubusercontent.com/54187661/183174999-d66f7774-3f2f-4feb-81bc-e32613cb8112.png" />
+  <img width="90%" src="https://user-images.githubusercontent.com/54187661/188276771-cfdf25a4-7a88-4d74-9b1f-864a61b63d00.jpeg" />
 </p>
 
 
