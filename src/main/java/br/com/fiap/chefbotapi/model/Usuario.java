@@ -1,6 +1,7 @@
 package br.com.fiap.chefbotapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import javax.persistence.*;
@@ -29,7 +30,6 @@ public class Usuario {
 
     @Column(name = "ds_senha", nullable = false)
     @NotBlank
-    @JsonIgnore
     private String senha;
 
     @Column(name = "ds_uf", length = 19)
