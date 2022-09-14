@@ -52,7 +52,7 @@ public class UsuarioService {
 
     }
 
-    public boolean isUsuarioValido(String email){
+    public boolean usuarioExisteNoBanco(String email){
         Optional<Usuario> usuario = usuarioRepository.findByEmail(email);
         return usuario.isPresent();
     }

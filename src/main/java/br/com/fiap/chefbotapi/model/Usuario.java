@@ -1,13 +1,13 @@
 package br.com.fiap.chefbotapi.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
@@ -21,23 +21,19 @@ public class Usuario {
     private long id;
 
     @Column(name = "nm_usuario", nullable = false, length = 55)
+    @NotBlank
     private String nome;
 
-    @Column(name = "ds_email", nullable = false, length = 40)
+    @Column(name = "ds_email", nullable = false, length = 40, unique = true)
+    @Email
     private String email;
 
     @Column(name = "ds_senha", nullable = false)
+    @NotBlank
     private String senha;
 
     @Column(name = "ds_uf", length = 19)
     private String uf;
-
-    //TODO criar classe Ingrediente
-    //TODO setar
-//    @OneToMany(cascade =CascadeType.ALL)
-//    @JsonBackReference
-//    private List<Ingrediente> ingredientes;
-
 
     @Column(name = "dt_cadastro")
     private LocalDateTime dataCadastro;
@@ -57,15 +53,6 @@ public class Usuario {
         this.status = true;
     }
 
-//    public Usuario(String nome, String email, String senha, String uf, List<Ingrediente> ingredientes) {
-//        this.nome = nome;
-//        this.email = email;
-//        this.senha = senha;
-//        this.uf = uf;
-//        this.dataCadastro = LocalDateTime.now();
-//        this.status = true;
-////        this.ingredientes = ingredientes;
-//    }
 
     public long getId() {
         return id;
@@ -106,15 +93,6 @@ public class Usuario {
     public void setUf(String uf) {
         this.uf = uf;
     }
-
-
-//    public List<Ingrediente> getIngredientes() {
-//        return ingredientes;
-//    }
-//
-//    public void setIngredientes(List<Ingrediente> ingredientes) {
-//        this.ingredientes = ingredientes;
-//    }
 
     public LocalDateTime getDataCadastro() {
         return dataCadastro;

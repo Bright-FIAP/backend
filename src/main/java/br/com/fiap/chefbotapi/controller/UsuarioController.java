@@ -30,8 +30,9 @@ public class UsuarioController {
 
     @PostMapping(path = "/cadastrar")
     public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){
-        if(!usuarioService.isUsuarioValido(usuario.getEmail())){ //se email não existe no banco
-            System.out.println("existe no banco? " + usuarioService.isUsuarioValido(usuario.getEmail()));
+        if(!usuarioService.usuarioExisteNoBanco(usuario.getEmail().toLowerCase())){ //se email não existe no banco
+            System.out.println("existe no banco? " + usuarioService.usuarioExisteNoBanco(usuario.getEmail()));
+            usuario.setEmail(usuario.getEmail().toLowerCase());
             usuarioService.salvarUsuario(usuario);
             return new ResponseEntity<Usuario>(usuario, HttpStatus.CREATED);
         }else{
