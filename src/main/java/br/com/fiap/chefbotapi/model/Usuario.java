@@ -24,7 +24,7 @@ public class Usuario {
     @NotBlank
     private String nome;
 
-    @Column(name = "ds_email", nullable = false, length = 40, unique = true)
+    @Column(name = "ds_email", nullable = false, length = 40)
     @Email
     private String email;
 
