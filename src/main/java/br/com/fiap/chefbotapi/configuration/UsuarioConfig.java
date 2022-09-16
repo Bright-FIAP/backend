@@ -16,15 +16,15 @@ public class UsuarioConfig {
         return args -> {
 
 
-            Usuario u1 = new Usuario(
-                    "Giulio Cesar Costa Bernardi",
-                    "giulioccbernardi@gmail.com",
-                    "123456789",
-                    "São Paulo"
-            );
+//             Usuario u1 = new Usuario(
+//                     "Giulio Cesar Costa Bernardi",
+//                     "giulioccbernardi@gmail.com",
+//                     "123456789",
+//                     "São Paulo"
+//             );
 
 
-            usuarioRepository.saveAll(List.of(u1));
+//             usuarioRepository.saveAll(List.of(u1));
 
         };
 
